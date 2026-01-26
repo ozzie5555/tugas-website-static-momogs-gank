@@ -1,40 +1,89 @@
-<<<<<<< HEAD
-"Halo, perkenalkan, kami dari kelompok 9 membuat website bernama Momog, yang fokus mempromosikan wisata dan kuliner khas Semarang.
+# 🏙️ Momog - Semarang Tourism & Culinary Guide
 
-Kenapa Momog? Karena kami ingin memberi julukan hangat untuk Kota Semarang — tempat yang penuh sejarah, alam indah, dan makanan lezat seperti Lumpia dan Wingko Babat.
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
-Website ini terdiri dari lima halaman utama:
+> A static website promoting Semarang's tourism destinations and authentic culinary experiences
 
-Beranda, yang menampilkan gambar ikonik Semarang dan pengantar singkat tentang keunikan kotanya,
-Tentang Kami, yang menjelaskan siapa tim kami dan visi kami dalam mendukung pariwisata lokal,
-Destinasi, di mana pengunjung bisa eksplorasi tempat bersejarah seperti Lawang Sewu dan Kota Lama, atau wisata alam seperti Gunung Ungaran,
-Kuliner, yang menampilkan makanan khas Semarang lengkap dengan harga dan rekomendasi tokonya — dan uniknya, informasi detailnya baru muncul setelah pengguna klik tombol ‘Click here’, sesuai mockup kami,
-Serta Kontak, yang menyediakan formulir pesan dan info kontak resmi.
-Dari sisi teknis, website ini dibuat statis — artinya hanya pakai HTML, CSS, dan sedikit JavaScript ringan. Tidak ada database atau backend, jadi sangat cepat dan ringan, terutama di HP Android.
+---
 
-Desainnya mengacu pada style guide resmi kelompok:
+## 📖 About The Project
 
-Latar belakang pakai warna cream krem lumpia (#F5E6D3),
-Aksen hijau pandan (#6B8E23) untuk judul dan tombol,
-Font heading pakai Playfair Display biar terasa elegan dan bersejarah,
-Sementara teks biasa pakai Open Sans supaya mudah dibaca.
-Kami juga memastikan tampilannya responsif, artinya enak dilihat baik di HP maupun laptop. Dan sesuai prinsip kami: minim animasi, maksimal informasi — biar tidak lag di perangkat low-end.
+**Momog** is a digital guide created by Group 9, dedicated to showcasing the rich heritage, natural beauty, and culinary delights of Semarang, Central Java. The name "Momog" serves as an affectionate nickname for the city—a place filled with history, stunning landscapes, and iconic dishes like Lumpia and Wingko Babat.
 
-Intinya, Momog hadir sebagai panduan digital yang menarik, akurat, dan mudah diakses untuk siapa pun yang ingin menjelajahi Semarang.
+### 🎯 Project Goals
 
-Terima kasih!"
+- Promote local tourism and cultural heritage
+- Provide accessible information about Semarang's attractions
+- Support local culinary businesses
+- Deliver a fast, lightweight browsing experience
 
+---
 
-<!-- Nama Makanan -->
-<div class="kuliner-card">
-  <div class="kuliner-img-wrapper">
-    <img src="assets/images/kuliner/nama-gambar.jpg" alt="Nama Makanan" class="kuliner-img">
-  </div>
-  <div class="kuliner-content">
-    <h3>Nama Makanan</h3>
-    <a href="desk_kuliner/nama-file.html" class="click-here-btn">Click here</a>
-  </div>
-</div>
+## ✨ Features
 
-# tugas-website-static-momogs-gank
-bbe526a591504210bfedefdce26e3f6953551c5c
+### 📄 Main Pages
+
+1. **Home** - Iconic imagery and introduction to Semarang's uniqueness
+2. **About Us** - Our team's vision for supporting local tourism
+3. **Destinations** - Explore historical sites (Lawang Sewu, Kota Lama) and natural attractions (Gunung Ungaran)
+4. **Culinary** - Semarang's signature dishes with prices and vendor recommendations
+   - Interactive "Click here" feature for detailed information
+5. **Contact** - Message form and official contact information
+
+### 🎨 Design System
+
+- **Background**: Cream Lumpia (#F5E6D3)
+- **Accent**: Pandan Green (#6B8E23) for headings and buttons
+- **Typography**:
+  - Headings: Playfair Display (elegant, historical feel)
+  - Body: Open Sans (optimal readability)
+
+### 🚀 Technical Highlights
+
+- **Fully Static** - HTML, CSS, and minimal JavaScript
+- **No Backend** - Fast loading, especially on mobile devices
+- **Responsive Design** - Optimized for both mobile and desktop
+- **Minimal Animations** - Performance-focused for low-end devices
+- **Lightweight** - Quick load times even on slower connections
+
+---
+
+## 🛠️ Built With
+
+- HTML5
+- CSS3
+- JavaScript (minimal)
+
+---
+
+## 📱 Responsive Design
+
+The website is fully optimized for:
+- 📱 Mobile devices (Android/iOS)
+- 💻 Tablets
+- 🖥️ Desktop browsers
+
+---
+
+## 👥 Team
+
+**Group 9 - Momog's Gank**
+
+---
+
+## 📜 License
+
+This project is for educational purposes.
+
+---
+
+## 🙏 Acknowledgments
+
+- Semarang Tourism Department
+- Local culinary vendors
+- Our dedicated team members
+
+---
+
+**Made with ❤️ for Semarang**
