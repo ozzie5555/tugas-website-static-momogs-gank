@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumpia Semarang – Kuliner Semarang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
+      color: #2d3748;
+      line-height: 1.65;
+    }
+
+    .detail-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 10px 24px;
+      border-radius: 30px;
+      margin-bottom: 48px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+
+    .back-btn::before {
+      content: "←";
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+
+    .detail-content {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .detail-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      color: #4a5568;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .detail-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: #1a202c;
+      letter-spacing: -0.5px;
+    }
+
+    .description-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .image-container {
+      border-radius: 16px;
+      overflow: hidden;
+      height: fit-content;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .image-container:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .detail-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .description-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .description-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 48px;
+      height: 2px;
+      background-color: #4a5568;
+    }
+
+    .description-text p {
+      font-size: 1.0625rem;
+      color: #4a5568;
+      line-height: 1.75;
+      text-align: justify;
+      margin-bottom: 24px;
+    }
+
+    .variant-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .variant-card {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .variant-card:hover {
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+    }
+
+    .variant-card h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 12px;
+    }
+
+    .variant-card p {
+      font-size: 0.9375rem;
+      color: #4a5568;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .price-card, .location-card, .tips-card {
+      padding: 32px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .price-card:hover, .location-card:hover, .tips-card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .price-card h3, .location-card h3, .tips-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .price-card h3::before, .location-card h3::before, .tips-card h3::before {
+      content: '';
+      width: 3px;
+      height: 18px;
+      background-color: #4a5568;
+      border-radius: 2px;
+    }
+
+    .price-quote {
+      padding: 16px;
+      border-left: 2px solid #4a5568;
+      margin-top: 12px;
+      font-size: 1.0625rem;
+      color: #4a5568;
+    }
+
+    .price-quote strong {
+      color: #1a202c;
+      font-size: 1.125rem;
+    }
+
+    .location-list, .tips-content {
+      list-style: none;
+    }
+
+    .location-list li, .tips-content li {
+      margin-bottom: 16px;
+      padding-left: 24px;
+      position: relative;
+      line-height: 1.6;
+      color: #4a5568;
+    }
+
+    .location-list li:last-child, .tips-content li:last-child {
+      margin-bottom: 0;
+    }
+
+    .location-list li::before, .tips-content li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #4a5568;
+    }
+
+    .location-list strong, .tips-content strong {
+      color: #1a202c;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .detail-container {
+        padding: 0 20px;
+      }
+
+      .detail-content {
+        padding: 40px 24px;
+      }
+
+      .detail-header h1 {
+        font-size: 2.25rem;
+      }
+
+      .description-section {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .detail-img {
+        height: 320px;
+      }
+
+      .description-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .variant-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .detail-content {
+        padding: 32px 20px;
+      }
+
+      .detail-header h1 {
+        font-size: 1.875rem;
+      }
+
+      .detail-img {
+        height: 260px;
+      }
+
+      .description-text h2 {
+        font-size: 1.375rem;
+      }
+
+      .variant-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="detail-container">
+    <a href="../kuliner.html" class="back-btn">Kembali</a>
+
+    <div class="detail-content">
+      <div class="detail-header">
+        <div class="subtitle">Kuliner Tradisional Semarang</div>
+        <h1>Lumpia Semarang</h1>
+      </div>
+
+      <div class="description-section">
+        <div class="image-container">
+          <img src="../assets/images/desk-kuliner/lumpia.jpg" alt="Lumpia Semarang" class="detail-img">
+        </div>
+        
+        <div class="description-text">
+          <h2>Tentang Lumpia Semarang</h2>
+          <p>
+            Lumpia Semarang adalah makanan khas yang berupa rol kulit lumpia berisi rebung, telur, dan udang, disajikan dengan saus gula merah pedas yang khas. Lumpia ini memiliki cita rasa yang unik dengan perpaduan gurih, manis, dan sedikit pedas. Ada dua varian lumpia yang populer: lumpia basah (tidak digoreng) dan lumpia goreng (digoreng hingga crispy).
+          </p>
+        </div>
+      </div>
+
+      <div class="variant-grid">
+        <div class="variant-card">
+          <h3>Lumpia Basah</h3>
+          <p>Kulit lumpia lembut tidak digoreng, berisi rebung segar dengan tekstur kenyal dan saus khas</p>
+        </div>
+        <div class="variant-card">
+          <h3>Lumpia Goreng</h3>
+          <p>Lumpia yang digoreng hingga kulit menjadi renyah dan crispy, isian tetap gurih dan lezat</p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="price-card">
+          <h3>Harga Estimasi</h3>
+          <div class="price-quote">
+            <strong>Rp 10.000 – Rp 20.000</strong> per porsi (biasanya isi 2–3 potong)
+          </div>
+        </div>
+
+        <div class="location-card">
+          <h3>Lokasi Rekomendasi</h3>
+          <ul class="location-list">
+            <li>
+              <strong>Lumpia Gang Lombok</strong>
+              Salah satu lumpia legendaris dan paling terkenal di Semarang, berlokasi di kawasan Pecinan
+            </li>
+            <li>
+              <strong>Lumpia Mataram</strong>
+              Terkenal dengan cita rasa autentik dan sudah berdiri puluhan tahun
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tips-card" style="margin-top: 36px;">
+        <h3>Tips Menikmati</h3>
+        <ul class="tips-content">
+          <li>
+            <strong>Santap hangat</strong>
+            Lumpia Semarang paling nikmat disantap dalam keadaan hangat
+          </li>
+          <li>
+            <strong>Coba keduanya</strong>
+            Jangan lupa mencoba kedua varian (basah dan goreng) untuk merasakan perbedaan tekstur dan rasa
+          </li>
+          <li>
+            <strong>Jangan lupa sausnya</strong>
+            Saus gula merah pedas adalah kunci kelezatan — tuangkan secukupnya sesuai selera
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
+

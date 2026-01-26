@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinasi – Momog</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- CSS Lokal -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Layout Khusus Destinasi */
+    .destinasi-layout {
+      display: flex;
+      gap: 50px;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .sidebar {
+      flex: 0 0 300px;
+      position: sticky;
+      top: 20px;
+      align-self: flex-start;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #6B8E23;
+      border-radius: 10px;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .category-title {
+      font-size: 1.3rem;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #6B8E23;
+      color: #1A1A1A;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .place-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .place-list li {
+      margin-bottom: 16px;
+    }
+
+    .place-list a {
+      text-decoration: none;
+      color: #3d3d3d;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: block;
+      transition: all 0.3s ease;
+      position: relative;
+      border-left: 3px solid transparent;
+    }
+
+    .place-list a:hover {
+      background-color: #f5e6d3;
+      border-left-color: #6B8E23;
+      color: #2d2d2d;
+      padding-left: 20px;
+    }
+
+    .place-list a.active {
+      background-color: #f5e6d3;
+      border-left-color: #6B8E23;
+      color: #6B8E23;
+      font-weight: 600;
+    }
+
+    /* Card Style untuk Place Detail */
+    .place-detail {
+      background-color: #FFFFFF;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      scroll-margin-top: 20px;
+    }
+
+    .place-detail:hover {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+
+    .place-detail h3 {
+      color: #1A1A1A;
+      margin-bottom: 16px;
+      margin-top: 0;
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    /* Image Container untuk Auto Scroll */
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+      margin: 24px 0;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .image-carousel {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .image-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+    }
+
+    .image-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-indicator {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .image-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid white;
+    }
+
+    .image-dot.active {
+      background-color: #6B8E23;
+    }
+
+    .place-detail:hover .image-container {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    }
+
+    .place-detail p {
+      line-height: 1.8;
+      color: #4a4a4a;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+
+    .place-detail p strong {
+      color: #1A1A1A;
+      font-weight: 600;
+    }
+
+    /* Location Link Style */
+    .location-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      text-decoration: none;
+      color: #6B8E23;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .location-link:hover {
+      background-color: #f5e6d3;
+      transform: translateX(4px);
+    }
+
+    .location-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .location-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #6B8E23;
+      transition: all 0.3s ease;
+    }
+
+    .location-link:hover .location-icon svg {
+      fill: #556B2F;
+    }
+
+    /* Kategori badge */
+    .category-badge {
+      display: inline-block;
+      background-color: #6B8E23;
+      color: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(107, 142, 35, 0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .destinasi-layout {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .sidebar {
+        position: static;
+        flex: none;
+        order: 2;
+        max-height: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .content {
+        order: 1;
+      }
+
+      .place-detail {
+        padding: 30px;
+      }
+
+      .place-detail h3 {
+        font-size: 1.6rem;
+      }
+
+      .image-container {
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .destinasi-layout {
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .place-detail {
+        padding: 20px;
+      }
+
+      .place-detail h3 {
+        font-size: 1.4rem;
+      }
+
+      .image-container {
+        height: 280px;
+        margin: 16px 0;
+      }
+
+      .place-detail {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand-logo">
+      <img src="assets/images/logo.png" alt="Momog" class="navbar-logo">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">BERANDA</a></li>
+      <li><a href="about.html">TENTANG</a></li>
+      <li><a href="destinasi.html" class="active">DESTINASI</a></li>
+      <li><a href="kuliner.html">KULINER</a></li>
+      <li><a href="kontak.html">KONTAK</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2>Destinasi Wisata Semarang</h2>
+
+    <div class="destinasi-layout">
+      <!-- Sidebar: Daftar Tempat -->
+      <aside class="sidebar">
+        <div>
+          <h3 class="category-title">Tempat Bersejarah</h3>
+          <ul class="place-list">
+            <li><a href="#lawang-sewu">Lawang Sewu</a></li>
+            <li><a href="#kota-lama">Kota Lama</a></li>
+            <li><a href="#gereja-blenduk">Gereja Blenduk</a></li>
+            <li><a href="#sam-poo-kong">Sam Poo Kong</a></li>
+            <li><a href="#museum-mandala">Museum Mandala</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="category-title">Wisata Alam</h3>
+          <ul class="place-list">
+            <li><a href="#gunung-ungaran">Gunung Ungaran</a></li>
+            <li><a href="#gunung-gajah">Gunung Gajah</a></li>
+            <li><a href="#gunung-andong">Gunung Andong</a></li>
+            <li><a href="#gunung-kendil">Gunung Kendil</a></li>
+            <li><a href="#gunung-merbabu">Gunung Merbabu</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Konten Detail -->
+      <div class="content">
+        <!-- Tempat Bersejarah -->
+        <div class="place-detail" id="lawang-sewu">
+          <span class="category-badge">BERSEJARAH</span>
+          <h3>Lawang Sewu</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/lawang-sewu.jpg" alt="Lawang Sewu Semarang"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/lawang-sewu.jpg" alt="Lawang Sewu Semarang 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Lawang Sewu adalah bangunan bersejarah peninggalan Belanda yang menjadi ikon Kota Semarang. Awalnya digunakan sebagai kantor perusahaan kereta api NIS, bangunan ini memiliki arsitektur kolonial yang megah dengan ratusan pintu.</p>
+          <p><strong>Lokasi:</strong> Jl. Pemuda No.150, Sekayu, Semarang Tengah.</p>
+          <a href="https://maps.google.com/maps?q=Lawang+Sewu+Semarang" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="kota-lama">
+          <span class="category-badge">BERSEJARAH</span>
+          <h3>Kota Lama</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/kota-lama.jpg" alt="Kota Lama Semarang"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/kota-lama.jpg" alt="Kota Lama Semarang 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Kota Lama atau "Little Netherlands" adalah kawasan bersejarah dengan deretan bangunan kolonial Belanda yang terpelihara. Cocok untuk wisata foto, kuliner, dan mengenal sejarah perdagangan masa lalu.</p>
+          <p><strong>Lokasi:</strong> Jantung Kota Semarang, dekat Tugu Muda.</p>
+          <a href="https://maps.google.com/maps?q=Kota+Lama+Semarang" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="gereja-blenduk">
+          <span class="category-badge">BERSEJARAH</span>
+          <h3>Gereja Blenduk</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/gereja-blenduk.jpg" alt="Gereja Blenduk"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/gereja-blenduk.jpg" alt="Gereja Blenduk 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Gereja Blenduk adalah gereja tertua di Jawa Tengah yang dibangun pada tahun 1753. Bangunan bergaya Barok ini memiliki kubah besar yang menjadi ciri khasnya.</p>
+          <p><strong>Lokasi:</strong> Kota Lama, Semarang.</p>
+          <a href="https://maps.google.com/maps?q=Gereja+Blenduk+Semarang" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="sam-poo-kong">
+          <span class="category-badge">BERSEJARAH</span>
+          <h3>Sam Poo Kong</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/sam-poo-kong.jpg" alt="Sam Poo Kong"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/sam-poo-kong.jpg" alt="Sam Poo Kong 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Sam Poo Kong adalah kelenteng bersejarah yang didirikan untuk menghormati Laksamana Cheng Ho. Tempat ini menjadi bukti akulturasi budaya Tionghoa dan Jawa di Semarang.</p>
+          <p><strong>Lokasi:</strong> Jl. Simongan No.129, Bongsari, Semarang Barat.</p>
+          <a href="https://maps.google.com/maps?q=Sam+Poo+Kong+Semarang" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="museum-mandala">
+          <span class="category-badge">BERSEJARAH</span>
+          <h3>Museum Mandala Bhakti</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/museum-mandala.jpg" alt="Museum Mandala"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/museum-mandala.jpg" alt="Museum Mandala 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Museum Mandala Bhakti menyimpan berbagai koleksi peninggalan sejarah perjuangan kemerdekaan Indonesia, khususnya di wilayah Jawa Tengah.</p>
+          <p><strong>Lokasi:</strong> Jl. Mgr Sugiyopranoto No.1, Panjunan, Semarang.</p>
+          <a href="#" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <!-- Wisata Alam -->
+        <div class="place-detail" id="gunung-ungaran">
+          <span class="category-badge">ALAM</span>
+          <h3>Gunung Ungaran</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/gunung-ungaran.jpg" alt="Gunung Ungaran"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/gunung-ungaran.jpg" alt="Gunung Ungaran 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Gunung Ungaran menawarkan pemandangan alam yang memukau, udara sejuk, dan jalur hiking yang menantang. Di puncaknya, kamu bisa melihat Kota Semarang dari ketinggian.</p>
+          <p><strong>Lokasi:</strong> Kabupaten Semarang, Jawa Tengah.</p>
+          <a href="#" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="gunung-gajah">
+          <span class="category-badge">ALAM</span>
+          <h3>Gunung Gajah</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/gunung-gajah.jpg" alt="Gunung Gajah"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/gunung-gajah.jpg" alt="Gunung Gajah 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Gunung Gajah menawarkan pemandangan sunrise yang indah dengan jalur pendakian yang ramah untuk pemula. Cocok untuk pendakian keluarga.</p>
+          <p><strong>Lokasi:</strong> Semarang, Jawa Tengah.</p>
+          <a href="#" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="gunung-andong">
+          <span class="category-badge">ALAM</span>
+          <h3>Gunung Andong</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/gunung-andong.jpg" alt="Gunung Andong"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/gunung-andong.jpg" alt="Gunung Andong 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Gunung Andong memiliki jalur pendakian yang relatif mudah dengan pemandangan 360 derajat di puncaknya. Populer untuk pendakian malam dan menyaksikan sunrise.</p>
+          <p><strong>Lokasi:</strong> Magelang, berbatasan dengan Semarang.</p>
+          <a href="#" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="gunung-kendil">
+          <span class="category-badge">ALAM</span>
+          <h3>Gunung Kendil</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/gunung-kendil.jpg" alt="Gunung Kendil"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/gunung-kendil.jpg" alt="Gunung Kendil 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Gunung Kendil merupakan salah satu puncak di kompleks Gunung Ungaran. Jalur pendakian cukup menantang dengan pemandangan alam yang masih alami.</p>
+          <p><strong>Lokasi:</strong> Kabupaten Semarang, Jawa Tengah.</p>
+          <a href="#" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+
+        <div class="place-detail" id="gunung-merbabu">
+          <span class="category-badge">ALAM</span>
+          <h3>Gunung Merbabu</h3>
+          <div class="image-container">
+            <div class="image-carousel">
+              <div class="image-slide"><img src="assets/images/destinasi/gunung-merbabu.jpg" alt="Gunung Merbabu"></div>
+              <div class="image-slide"><img src="assets/images/destinasi-2/gunung-merbabu.jpg" alt="Gunung Merbabu 2"></div>
+            </div>
+            <div class="image-indicator">
+              <div class="image-dot active"></div>
+              <div class="image-dot"></div>
+            </div>
+          </div>
+          <p>Gunung Merbabu adalah gunung berapi yang tidak aktif dengan ketinggian 3.145 mdpl. Terkenal dengan sabana luas dan pemandangan yang spektakuler.</p>
+          <p><strong>Lokasi:</strong> Perbatasan Magelang, Boyolali, dan Semarang.</p>
+          <a href="#" target="_blank" class="location-link">
+            <span class="location-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+              </svg>
+            </span>
+            <span>Lihat di Maps</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Community Momog's Concordia. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Auto scroll gambar 1 card 1 card
+    function initImageCarousel() {
+      const imageContainers = document.querySelectorAll('.image-container');
+      
+      imageContainers.forEach(container => {
+        const carousel = container.querySelector('.image-carousel');
+        const slides = container.querySelectorAll('.image-slide');
+        const dots = container.querySelectorAll('.image-dot');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        if (totalSlides <= 1) return;
+
+        // Auto scroll gambar setiap 4 detik
+        setInterval(() => {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateCarousel();
+        }, 4000);
+
+        // Update carousel position
+        function updateCarousel() {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+          
+          // Update dots
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        }
+
+        // Click dot to navigate
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+          });
+        });
+      });
+    }
+
+    // Initialize on page load
+    initImageCarousel();
+
+    // Smooth scroll dan highlight active link
+    document.querySelectorAll('.place-list a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelectorAll('.place-list a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Highlight link saat scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          document.querySelectorAll('.place-list a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === `#${id}`) {
+              a.classList.add('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -70% 0px'
+    });
+
+    document.querySelectorAll('.place-detail').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

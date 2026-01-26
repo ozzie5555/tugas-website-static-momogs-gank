@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Kami – Momog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* CSS Khusus untuk About Page */
+    .about-page {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .about-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .about-header p {
+      font-size: 15px;
+      color: #777;
+      max-width: 500px;
+      margin: 10px auto 0;
+    }
+
+    /* About Layout */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .profile-photo {
+      position: relative;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .profile-info h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .profile-info h3 {
+      font-size: 17px;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .profile-info p {
+      font-size: 15px;
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #666;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .info-value {
+      font-size: 15px;
+    }
+
+    /* Mission Section */
+    .mission-section {
+      background-color: #fff;
+      padding: 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .mission-section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+
+    .mission-item h3 {
+      font-size: 19px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .mission-item p {
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-header {
+        margin-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-page {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      .mission-section {
+        padding: 40px;
+      }
+
+      .mission-item h3 {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-brand-logo">
+      <img src="assets/images/logo.png" alt="Momog" class="navbar-logo">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html">BERANDA</a></li>
+      <li><a href="about.html" class="active">TENTANG</a></li>
+      <li><a href="destinasi.html">DESTINASI</a></li>
+      <li><a href="kuliner.html">KULINER</a></li>
+      <li><a href="kontak.html">KONTAK</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container about-page">
+    <!-- Header -->
+    <section class="section-white">
+      <div class="about-header">
+        <h2>Tentang Kami</h2>
+        <p>Mengenal lebih dekat tim di balik platform wisata Semarang</p>
+      </div>
+
+      <!-- About Layout -->
+      <div class="about-layout">
+        <div class="profile-photo">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop" alt="Community Momog's Concordia">
+        </div>
+
+        <div class="profile-info">
+          <h2>Community Momog's Concordia</h2>
+          
+          <div class="info-item">
+            <div class="info-label">Nama Tim</div>
+            <div class="info-value">Community Momog's Concordia</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Lokasi</div>
+            <div class="info-value">Semarang, Jawa Tengah, Indonesia</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Keahlian</div>
+            <div class="info-value">Web Development, UX Design, Content Creation</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Tahun Berdiri</div>
+            <div class="info-value">2025</div>
+          </div>
+
+          <p style="margin-top: 30px;">
+            Kami adalah tim yang berdedikasi untuk mempromosikan keindahan dan kekayaan pariwisata Semarang melalui platform digital yang inovatif dan user-friendly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+      <h2>Misi & Visi Kami</h2>
+      
+      <div class="mission-grid">
+        <div class="mission-item">
+          <h3>Visi</h3>
+          <p>
+            Menjadi platform terdepan dalam mempromosikan pariwisata Semarang yang memberikan informasi komprehensif, akurat, dan menginspirasi bagi setiap wisatawan.
+          </p>
+        </div>
+
+        <div class="mission-item">
+          <h3>Misi</h3>
+          <p>
+            Memberikan pengalaman digital yang luar biasa dengan menyajikan destinasi wisata, kuliner, dan sejarah Semarang secara detail dan menarik untuk meningkatkan apresiasi terhadap kekayaan budaya lokal.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Community Momog's Concordia. All rights reserved.</p>
+  </footer>
+</body>
+</html>

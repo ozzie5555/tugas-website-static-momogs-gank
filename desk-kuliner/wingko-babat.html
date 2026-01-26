@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wingko Babat – Kuliner Semarang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
+      color: #2d3748;
+      line-height: 1.65;
+    }
+
+    .detail-container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 24px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 10px 24px;
+      border-radius: 30px;
+      margin-bottom: 48px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1a1a1a;
+      transform: translateY(-2px);
+    }
+
+    .back-btn::before {
+      content: "←";
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+
+    .detail-content {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 60px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .detail-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      color: #4a5568;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .detail-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: #1a202c;
+      letter-spacing: -0.5px;
+    }
+
+    .description-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+
+    .image-container {
+      border-radius: 16px;
+      overflow: hidden;
+      height: fit-content;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .image-container:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .detail-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .description-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .description-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 48px;
+      height: 2px;
+      background-color: #4a5568;
+    }
+
+    .description-text p {
+      font-size: 1.0625rem;
+      color: #4a5568;
+      line-height: 1.75;
+      text-align: justify;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .info-card, .location-card {
+      padding: 32px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .info-card:hover, .location-card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .info-card h3, .location-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card h3::before, .location-card h3::before {
+      content: '';
+      width: 3px;
+      height: 18px;
+      background-color: #4a5568;
+      border-radius: 2px;
+    }
+
+    .price-item {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .price-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .price-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .price-item div {
+      color: #718096;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    .location-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .location-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .location-item strong {
+      display: block;
+      font-weight: 600;
+      color: #1a202c;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .location-item span {
+      color: #718096;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .detail-container {
+        padding: 0 20px;
+      }
+
+      .detail-content {
+        padding: 40px 24px;
+      }
+
+      .detail-header h1 {
+        font-size: 2.25rem;
+      }
+
+      .description-section {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .detail-img {
+        height: 320px;
+      }
+
+      .description-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .detail-content {
+        padding: 32px 20px;
+      }
+
+      .detail-header h1 {
+        font-size: 1.875rem;
+      }
+
+      .detail-img {
+        height: 260px;
+      }
+
+      .description-text h2 {
+        font-size: 1.375rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="detail-container">
+    <a href="../kuliner.html" class="back-btn">Kembali</a>
+
+    <div class="detail-content">
+      <div class="detail-header">
+        <div class="subtitle">Kuliner Tradisional Semarang</div>
+        <h1>Wingko Babat</h1>
+      </div>
+
+      <div class="description-section">
+        <div class="image-container">
+          <img src="../assets/images/desk-kuliner/desk-wingko-babat.jpg" alt="Wingko Babat" class="detail-img">
+        </div>
+        
+        <div class="description-text">
+          <h2>Tentang Wingko Babat</h2>
+          <p>
+            Wingko Babat adalah kue tradisional khas Semarang (meskipun asalnya dari Babat–Lamongan) yang terbuat dari kelapa muda, tepung ketan/beras, gula, dan kadang aroma pandan atau coklat. Teksturnya lembut tapi agak kenyal, beraroma kelapa yang khas, dan biasa dijadikan oleh-oleh khas dari kota Semarang. Setiap gigitan memberikan pengalaman rasa kelapa yang autentik dan mengingatkan pada cita rasa tradisional nusantara.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Harga Estimasi</h3>
+          <div class="price-item">
+            <strong>Kemasan Isi 10 Biji:</strong>
+            <div>±Rp 17.500 (Merk NN Meniko)</div>
+          </div>
+          <div class="price-item">
+            <strong>Kemasan Besar (20 Biji):</strong>
+            <div>Rp 30.000 – Rp 40.000+</div>
+            <div>(Tergantung kemasan dan brand)</div>
+          </div>
+        </div>
+
+        <div class="location-card">
+          <h3>Lokasi Rekomendasi</h3>
+          <div class="location-item">
+            <strong>Wingko Babat Cap Kereta Api</strong>
+            <span>Jl. Cendrawasih No. 14, Purwodinatan Timur, Semarang Tengah</span>
+          </div>
+          <div class="location-item">
+            <strong>Wingko Babat Pak Moel</strong>
+            <span>Jl. Pekunden Tengah No.1110, Semarang Tengah</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
+
