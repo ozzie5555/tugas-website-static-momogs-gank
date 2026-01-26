@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "Halo, perkenalkan, kami dari kelompok 9 membuat website bernama Momog, yang fokus mempromosikan wisata dan kuliner khas Semarang.
 
 Kenapa Momog? Karena kami ingin memberi julukan hangat untuk Kota Semarang — tempat yang penuh sejarah, alam indah, dan makanan lezat seperti Lumpia dan Wingko Babat.
@@ -34,3 +35,6 @@ Terima kasih!"
     <a href="desk_kuliner/nama-file.html" class="click-here-btn">Click here</a>
   </div>
 </div>
+
+# tugas-website-static-momogs-gank
+bbe526a591504210bfedefdce26e3f6953551c5c
