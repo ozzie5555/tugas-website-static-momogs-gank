@@ -3,14 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tentang Kami – Momog</title>
+  <title>Tentang Kami — Momog</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome untuk ikon Instagram -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    /* CSS Khusus untuk About Page */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     .about-page {
       margin-top: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
 
     .about-header {
@@ -18,148 +38,223 @@
       margin-bottom: 50px;
     }
 
-    .about-header p {
-      font-size: 15px;
-      color: #777;
-      max-width: 500px;
-      margin: 10px auto 0;
+    .about-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #222;
+      font-family: 'Playfair Display', serif;
     }
 
-    /* About Layout */
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
+    .about-header p {
+      font-size: 16px;
+      color: #666;
+      max-width: 600px;
+      margin: 12px auto 0;
+      line-height: 1.6;
+    }
+
+    /* === Card Informasi Tim — SPLIT LAYOUT === */
+    .team-info-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      overflow: hidden;
       margin-bottom: 60px;
     }
 
-    .profile-photo {
-      position: relative;
+    .info-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 30px;
+      padding: 40px;
     }
 
-    .profile-photo img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-      display: block;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    .profile-info h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-
-    .profile-info h3 {
-      font-size: 17px;
-      margin-top: 28px;
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .profile-info p {
+    .info-text p {
       font-size: 15px;
-      margin-bottom: 16px;
       line-height: 1.7;
+      color: #555;
+      margin: 0;
     }
 
-    .info-item {
+    .info-details {
       display: flex;
       flex-direction: column;
-      margin-bottom: 18px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid #eee;
+      gap: 18px;
     }
 
-    .info-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .detail-item {
+      display: flex;
+      flex-direction: column;
     }
 
-    .info-label {
+    .detail-label {
+      font-size: 12px;
       font-weight: 600;
       color: #666;
-      font-size: 13px;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
     }
 
-    .info-value {
-      font-size: 15px;
-    }
-
-    /* Mission Section */
-    .mission-section {
-      background-color: #fff;
-      padding: 60px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-
-    .mission-section h2 {
-      font-size: 28px;
-      margin-bottom: 30px;
-      text-align: center;
+    .detail-value {
+      font-size: 16px;
       font-weight: 600;
+      color: #222;
     }
 
-    .mission-grid {
+    /* === Tim Anggota — Dengan Ikon Instagram Jelas === */
+    .team-section {
+      margin: 60px 0 40px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .team-member {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .team-member:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .member-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px;
+      border: 2px solid #f0f0f0;
+    }
+
+    .member-name {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 8px 0 4px;
+      color: #222;
+    }
+
+    .member-role {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f8f9fa;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-size: 18px;
+    }
+
+    .instagram-link {
+      color: #000000;
+    }
+
+    .instagram-link:hover {
+      background: #0b0b0b;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .github-link {
+      color: #333;
+    }
+
+    .github-link:hover {
+      background: #333;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* === Misi & Visi — Dua Card Terpisah === */
+    .mission-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      margin-top: 40px;
+      gap: 30px;
+      margin-top: 20px;
     }
 
-    .mission-item h3 {
-      font-size: 19px;
-      margin-bottom: 15px;
-      font-weight: 600;
+    .mission-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     }
 
-    .mission-item p {
+    .mission-card h3 {
+      font-size: 20px;
+      margin-bottom: 14px;
+      font-weight: 700;
+      color: #000000;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .mission-card p {
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
     }
 
     /* Responsive */
     @media (max-width: 968px) {
-      .about-layout {
+      .info-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        padding: 30px;
+        gap: 24px;
       }
 
-      .mission-grid {
+      .mission-cards {
         grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .about-header {
-        margin-bottom: 50px;
       }
     }
 
     @media (max-width: 768px) {
       .about-page {
         margin-top: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
 
-      .mission-section {
-        padding: 40px;
+      .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
       }
 
-      .mission-item h3 {
-        font-size: 17px;
+      .mission-card {
+        padding: 24px;
+      }
+
+      .social-link {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (tidak diubah) -->
   <nav class="navbar">
     <a href="index.html" class="nav-brand-logo">
       <img src="assets/images/logo.png" alt="Momog" class="navbar-logo">
@@ -175,73 +270,108 @@
 
   <!-- Main Content -->
   <main class="container about-page">
-    <!-- Header -->
-    <section class="section-white">
-      <div class="about-header">
-        <h2>Tentang Kami</h2>
-        <p>Mengenal lebih dekat tim di balik platform wisata Semarang</p>
-      </div>
+    <div class="about-header">
+      <h2>Tentang Kami</h2>
+      <p>Mengenal lebih dekat tim di balik platform wisata Semarang</p>
+    </div>
 
-      <!-- About Layout -->
-      <div class="about-layout">
-        <div class="profile-photo">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=600&fit=crop" alt="Community Momog's Concordia">
-        </div>
-
-        <div class="profile-info">
-          <h2>Community Momog's Concordia</h2>
-          
-          <div class="info-item">
-            <div class="info-label">Nama Tim</div>
-            <div class="info-value">Community Momog's Concordia</div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-label">Lokasi</div>
-            <div class="info-value">Semarang, Jawa Tengah, Indonesia</div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-label">Keahlian</div>
-            <div class="info-value">Web Development, UX Design, Content Creation</div>
-          </div>
-
-          <div class="info-item">
-            <div class="info-label">Tahun Berdiri</div>
-            <div class="info-value">2025</div>
-          </div>
-
-          <p style="margin-top: 30px;">
-            Kami adalah tim yang berdedikasi untuk mempromosikan keindahan dan kekayaan pariwisata Semarang melalui platform digital yang inovatif dan user-friendly.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section class="mission-section">
-      <h2>Misi & Visi Kami</h2>
-      
-      <div class="mission-grid">
-        <div class="mission-item">
-          <h3>Visi</h3>
+    <!-- Card Informasi Tim -->
+    <div class="team-info-card">
+      <div class="info-content">
+        <div class="info-text">
           <p>
-            Menjadi platform terdepan dalam mempromosikan pariwisata Semarang yang memberikan informasi komprehensif, akurat, dan menginspirasi bagi setiap wisatawan.
+            Kami adalah tim yang berdedikasi untuk mempromosikan keindahan dan kekayaan pariwisata Semarang melalui platform digital yang inovatif dan user-friendly. Semarang bukan sekadar kota transit, melainkan destinasi wisata yang menyimpan perpaduan unik antara warisan budaya Jawa, peninggalan kolonial Belanda, dan perkembangan modern yang dinamis. Dari Kota Lama yang memesona dengan arsitektur kuno yang instagramable, kawasan Pecinan Semawis yang penuh warna, hingga kuliner legendaris seperti lumpia gang lombok dan bandeng presto—setiap sudut kota ini memiliki cerita yang layak untuk dieksplorasi. Melalui website ini, kami menghadirkan panduan lengkap destinasi wisata dan kuliner khas Semarang untuk membantu Anda merencanakan perjalanan yang tak terlupakan di Kota Atlas.
           </p>
         </div>
-
-        <div class="mission-item">
-          <h3>Misi</h3>
-          <p>
-            Memberikan pengalaman digital yang luar biasa dengan menyajikan destinasi wisata, kuliner, dan sejarah Semarang secara detail dan menarik untuk meningkatkan apresiasi terhadap kekayaan budaya lokal.
-          </p>
+        <div class="info-details">
+          <div class="detail-item">
+            <span class="detail-label">Nama Tim</span>
+            <span class="detail-value">Community Momog's Concordia</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Lokasi</span>
+            <span class="detail-value">Semarang, Jawa Tengah</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Tahun Berdiri</span>
+            <span class="detail-value">2025</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Tim Anggota -->
+    <div class="team-section">
+      <div class="team-grid">
+        <!-- Anggota 1 -->
+        <div class="team-member">
+          <img src="https://files.catbox.moe/p7xxyu.jpg" alt="Krisna Mandala" class="member-photo">
+          <div class="member-name">Krisna Mandala Putra</div>
+          <div class="member-role">Web Developer & Security Analyst</div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/krsnaa.ptraa?igsh=d2lzZzFpM2preHc=" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" aria-label="Kunjungi Instagram Krisna">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Anggota 2 -->
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face" alt="Putri Wijaya" class="member-photo">
+          <div class="member-name">Restu Galih Pratama</div>
+          <div class="member-role">UX Designer</div>
+          <div class="social-links">
+            <a href="https://instagram.com/contoh2" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" aria-label="Kunjungi Instagram Putri">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Anggota 3 -->
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" alt="Adi Santoso" class="member-photo">
+          <div class="member-name">Giovinco Alhusna Jibril</div>
+          <div class="member-role">Content Creator</div>
+          <div class="social-links">
+            <a href="https://instagram.com/contoh3" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" aria-label="Kunjungi Instagram Adi">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Anggota 4 -->
+        <div class="team-member">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=face" alt="Dewi Lestari" class="member-photo">
+          <div class="member-name">Daffa Firas Alfarissi</div>
+          <div class="member-role">Digital Strategist</div>
+          <div class="social-links">
+            <a href="https://instagram.com/contoh4" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" aria-label="Kunjungi Instagram Dewi">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Misi & Visi -->
+    <div class="mission-cards">
+      <div class="mission-card">
+        <h3>Visi</h3>
+        <p>
+          Menjadi platform terdepan dalam mempromosikan pariwisata Semarang yang memberikan informasi komprehensif, akurat, dan menginspirasi bagi setiap wisatawan.
+        </p>
+      </div>
+      <div class="mission-card">
+        <h3>Misi</h3>
+        <p>
+          Memberikan pengalaman digital yang luar biasa dengan menyajikan destinasi wisata, kuliner, dan sejarah Semarang secara detail dan menarik untuk meningkatkan apresiasi terhadap kekayaan budaya lokal.
+        </p>
+      </div>
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" style="text-align: center; padding: 20px; background: #000000; margin-top: 60px; font-size: 14px; color: #F5E6D3;">
     <p>&copy; 2026 Community Momog's Concordia. All rights reserved.</p>
   </footer>
 </body>
