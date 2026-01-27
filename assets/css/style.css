@@ -13,8 +13,8 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1.6;
-  color: #1A1A1A;
-  background-color: #FFFFFF; /* Background Putih */
+  color: #333;
+  background-color: #fafafa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -169,7 +169,7 @@ strong {
 
 /* === KONTEN UTAMA === */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 95%;
   margin: 0 auto;
   padding: 0 16px 40px;
@@ -177,28 +177,28 @@ strong {
 
 /* === SECTION WHITE (UNTUK TENTANG SEMARANG) === */
 .section-white {
-  background-color: #F5F5F5;
-  padding: 40px 32px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   margin-bottom: 40px;
-}
-
-.section-white p {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.8;
-  color: #1A1A1A;
-  margin-bottom: 16px;
 }
 
 .section-white h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-style: normal;
-  color: #1A1A1A;
+  font-size: 36px;
+  color: #222;
   margin-bottom: 20px;
+}
+
+.section-white p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 16px;
 }
 
 /* === CTA SECTION === */
@@ -274,5 +274,9 @@ strong {
   .cta-section {
     flex-direction: column;
     align-items: center;
+  }
+
+  .section-white {
+    padding: 30px;
   }
 }

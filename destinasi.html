@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Destinasi – Momog</title>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- CSS Lokal -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     /* Layout Khusus Destinasi */
@@ -116,11 +114,11 @@
       letter-spacing: -0.5px;
     }
 
-    /* Image Container untuk Auto Scroll */
+    /* Image Container untuk Auto Scroll - UPDATED HEIGHT */
     .image-container {
       position: relative;
       width: 100%;
-      height: 400px;
+      height: 500px; /* Diubah dari 400px ke 500px agar lebih tinggi */
       border-radius: 12px;
       margin: 24px 0;
       overflow: hidden;
@@ -174,56 +172,6 @@
       box-shadow: 0 12px 32px rgba(0,0,0,0.15);
     }
 
-    .place-detail p {
-      line-height: 1.8;
-      color: #4a4a4a;
-      font-size: 1.05rem;
-      margin-bottom: 16px;
-    }
-
-    .place-detail p strong {
-      color: #1A1A1A;
-      font-weight: 600;
-    }
-
-    /* Location Link Style */
-    .location-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 12px;
-      text-decoration: none;
-      color: #6B8E23;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 8px;
-    }
-
-    .location-link:hover {
-      background-color: #f5e6d3;
-      transform: translateX(4px);
-    }
-
-    .location-icon {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .location-icon svg {
-      width: 100%;
-      height: 100%;
-      fill: #6B8E23;
-      transition: all 0.3s ease;
-    }
-
-    .location-link:hover .location-icon svg {
-      fill: #556B2F;
-    }
-
     /* Kategori badge */
     .category-badge {
       display: inline-block;
@@ -236,6 +184,89 @@
       margin-bottom: 12px;
       letter-spacing: 0.5px;
       box-shadow: 0 2px 8px rgba(107, 142, 35, 0.2);
+    }
+
+    /* --- GAYA BARU (MODERN DESCRIPTION & INFO BOX) --- */
+    
+    /* Deskripsi Naratif */
+    .place-desc {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    /* Info Box Container (Lokasi) */
+    .place-info-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background-color: #fcfdf9;
+      border: 1px solid #e1e8d5;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+
+    /* Ikon kecil di info box */
+    .info-icon-small {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      fill: #6B8E23;
+      margin-top: 2px;
+    }
+
+    /* Teks dalam info box */
+    .info-content {
+      flex: 1;
+    }
+
+    .info-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #888;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .info-text {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* Tombol Maps Modern */
+    .location-link-modern {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #6B8E23;
+      color: #fff !important;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(107, 142, 35, 0.25);
+    }
+
+    .location-link-modern:hover {
+      background-color: #556B2F;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(107, 142, 35, 0.35);
+    }
+
+    .location-link-modern svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
     }
 
     /* Responsive */
@@ -268,7 +299,7 @@
       }
 
       .image-container {
-        height: 320px;
+        height: 400px; /* Tablet Height Updated */
       }
     }
 
@@ -292,18 +323,22 @@
       }
 
       .image-container {
-        height: 280px;
+        height: 320px; /* Mobile Height Updated */
         margin: 16px 0;
       }
 
       .place-detail {
         margin-bottom: 30px;
       }
+      
+      .location-link-modern {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html" class="nav-brand-logo">
       <img src="assets/images/logo.png" alt="Momog" class="navbar-logo">
@@ -317,12 +352,10 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
   <main class="container">
     <h2>Destinasi Wisata Semarang</h2>
 
     <div class="destinasi-layout">
-      <!-- Sidebar: Daftar Tempat -->
       <aside class="sidebar">
         <div>
           <h3 class="category-title">Tempat Bersejarah</h3>
@@ -347,9 +380,8 @@
         </div>
       </aside>
 
-      <!-- Konten Detail -->
       <div class="content">
-        <!-- Tempat Bersejarah -->
+        
         <div class="place-detail" id="lawang-sewu">
           <span class="category-badge">BERSEJARAH</span>
           <h3>Lawang Sewu</h3>
@@ -363,15 +395,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Lawang Sewu adalah bangunan bersejarah peninggalan Belanda yang menjadi ikon Kota Semarang. Awalnya digunakan sebagai kantor perusahaan kereta api NIS, bangunan ini memiliki arsitektur kolonial yang megah dengan ratusan pintu.</p>
-          <p><strong>Lokasi:</strong> Jl. Pemuda No.150, Sekayu, Semarang Tengah.</p>
-          <a href="https://maps.google.com/maps?q=Lawang+Sewu+Semarang" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Lawang Sewu adalah bangunan bersejarah peninggalan Belanda yang menjadi ikon Kota Semarang. Awalnya digunakan sebagai kantor perusahaan kereta api NIS, bangunan ini memiliki arsitektur kolonial yang megah dengan ratusan pintu.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Jl. Pemuda No.150, Sekayu, Semarang Tengah.</p>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/maps?q=Lawang+Sewu+Semarang" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -388,15 +424,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Kota Lama atau "Little Netherlands" adalah kawasan bersejarah dengan deretan bangunan kolonial Belanda yang terpelihara. Cocok untuk wisata foto, kuliner, dan mengenal sejarah perdagangan masa lalu.</p>
-          <p><strong>Lokasi:</strong> Jantung Kota Semarang, dekat Tugu Muda.</p>
-          <a href="https://maps.google.com/maps?q=Kota+Lama+Semarang" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Kota Lama atau "Little Netherlands" adalah kawasan bersejarah dengan deretan bangunan kolonial Belanda yang terpelihara. Cocok untuk wisata foto, kuliner, dan mengenal sejarah perdagangan masa lalu.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Jantung Kota Semarang, dekat Tugu Muda.</p>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/maps?q=Kota+Lama+Semarang" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -413,15 +453,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Gereja Blenduk adalah gereja tertua di Jawa Tengah yang dibangun pada tahun 1753. Bangunan bergaya Barok ini memiliki kubah besar yang menjadi ciri khasnya.</p>
-          <p><strong>Lokasi:</strong> Kota Lama, Semarang.</p>
-          <a href="https://maps.google.com/maps?q=Gereja+Blenduk+Semarang" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Gereja Blenduk adalah gereja tertua di Jawa Tengah yang dibangun pada tahun 1753. Bangunan bergaya Barok ini memiliki kubah besar yang menjadi ciri khasnya.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Kota Lama, Semarang.</p>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/maps?q=Gereja+Blenduk+Semarang" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -438,15 +482,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Sam Poo Kong adalah kelenteng bersejarah yang didirikan untuk menghormati Laksamana Cheng Ho. Tempat ini menjadi bukti akulturasi budaya Tionghoa dan Jawa di Semarang.</p>
-          <p><strong>Lokasi:</strong> Jl. Simongan No.129, Bongsari, Semarang Barat.</p>
-          <a href="https://maps.google.com/maps?q=Sam+Poo+Kong+Semarang" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Sam Poo Kong adalah kelenteng bersejarah yang didirikan untuk menghormati Laksamana Cheng Ho. Tempat ini menjadi bukti akulturasi budaya Tionghoa dan Jawa di Semarang.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Jl. Simongan No.129, Bongsari, Semarang Barat.</p>
+            </div>
+          </div>
+
+          <a href="https://maps.google.com/maps?q=Sam+Poo+Kong+Semarang" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -463,19 +511,22 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Museum Mandala Bhakti menyimpan berbagai koleksi peninggalan sejarah perjuangan kemerdekaan Indonesia, khususnya di wilayah Jawa Tengah.</p>
-          <p><strong>Lokasi:</strong> Jl. Mgr Sugiyopranoto No.1, Panjunan, Semarang.</p>
-          <a href="#" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Museum Mandala Bhakti menyimpan berbagai koleksi peninggalan sejarah perjuangan kemerdekaan Indonesia, khususnya di wilayah Jawa Tengah.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Jl. Mgr Sugiyopranoto No.1, Panjunan, Semarang.</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
-        <!-- Wisata Alam -->
         <div class="place-detail" id="gunung-ungaran">
           <span class="category-badge">ALAM</span>
           <h3>Gunung Ungaran</h3>
@@ -489,15 +540,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Gunung Ungaran menawarkan pemandangan alam yang memukau, udara sejuk, dan jalur hiking yang menantang. Di puncaknya, kamu bisa melihat Kota Semarang dari ketinggian.</p>
-          <p><strong>Lokasi:</strong> Kabupaten Semarang, Jawa Tengah.</p>
-          <a href="#" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Gunung Ungaran menawarkan pemandangan alam yang memukau, udara sejuk, dan jalur hiking yang menantang. Di puncaknya, kamu bisa melihat Kota Semarang dari ketinggian.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Kabupaten Semarang, Jawa Tengah.</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -514,15 +569,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Gunung Gajah menawarkan pemandangan sunrise yang indah dengan jalur pendakian yang ramah untuk pemula. Cocok untuk pendakian keluarga.</p>
-          <p><strong>Lokasi:</strong> Semarang, Jawa Tengah.</p>
-          <a href="#" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Gunung Gajah menawarkan pemandangan sunrise yang indah dengan jalur pendakian yang ramah untuk pemula. Cocok untuk pendakian keluarga.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Semarang, Jawa Tengah.</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -539,15 +598,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Gunung Andong memiliki jalur pendakian yang relatif mudah dengan pemandangan 360 derajat di puncaknya. Populer untuk pendakian malam dan menyaksikan sunrise.</p>
-          <p><strong>Lokasi:</strong> Magelang, berbatasan dengan Semarang.</p>
-          <a href="#" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Gunung Andong memiliki jalur pendakian yang relatif mudah dengan pemandangan 360 derajat di puncaknya. Populer untuk pendakian malam dan menyaksikan sunrise.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Magelang, berbatasan dengan Semarang.</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -564,15 +627,19 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Gunung Kendil merupakan salah satu puncak di kompleks Gunung Ungaran. Jalur pendakian cukup menantang dengan pemandangan alam yang masih alami.</p>
-          <p><strong>Lokasi:</strong> Kabupaten Semarang, Jawa Tengah.</p>
-          <a href="#" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Gunung Kendil merupakan salah satu puncak di kompleks Gunung Ungaran. Jalur pendakian cukup menantang dengan pemandangan alam yang masih alami.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Kabupaten Semarang, Jawa Tengah.</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
 
@@ -589,24 +656,27 @@
               <div class="image-dot"></div>
             </div>
           </div>
-          <p>Gunung Merbabu adalah gunung berapi yang tidak aktif dengan ketinggian 3.145 mdpl. Terkenal dengan sabana luas dan pemandangan yang spektakuler.</p>
-          <p><strong>Lokasi:</strong> Perbatasan Magelang, Boyolali, dan Semarang.</p>
-          <a href="#" target="_blank" class="location-link">
-            <span class="location-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
-              </svg>
-            </span>
-            <span>Lihat di Maps</span>
+          <p class="place-desc">Gunung Merbabu adalah gunung berapi yang tidak aktif dengan ketinggian 3.145 mdpl. Terkenal dengan sabana luas dan pemandangan yang spektakuler.</p>
+          
+          <div class="place-info-box">
+            <svg class="info-icon-small" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div class="info-content">
+              <span class="info-label">LOKASI</span>
+              <p class="info-text">Perbatasan Magelang, Boyolali, dan Semarang.</p>
+            </div>
+          </div>
+
+          <a href="#" target="_blank" class="location-link-modern">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C7.03 0 3 4.03 3 9c0 5.25 9 15 9 15s9-9.75 9-15c0-4.97-4.03-9-9-9zm0 13.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 4.5 12 4.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/></svg>
+            <span>Buka di Google Maps</span>
           </a>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2026 Community Momog's Concordia. All rights reserved.</p>
+    <p>© 2026 Community Momog's Concordia. All rights reserved.</p>
   </footer>
 
   <script>

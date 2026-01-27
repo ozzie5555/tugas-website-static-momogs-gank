@@ -73,7 +73,7 @@
     }
 
     .btn-submit {
-      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+      background: linear-gradient(135deg, #000000 0%, #000000 100%);
       color: white;
       border: none;
       padding: 14px 32px;
@@ -89,7 +89,7 @@
     }
 
     .btn-submit:hover {
-      background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+      background: linear-gradient(135deg, #000000 0%, #000000 100%);
       box-shadow: 0 6px 16px rgba(155, 89, 182, 0.4);
       transform: translateY(-2px);
     }
@@ -112,7 +112,7 @@
 
     .contact-label {
       font-weight: 600;
-      color: #9b59b6;
+      color: #000000;
       display: block;
       margin-bottom: 6px;
       font-size: 14px;
@@ -183,7 +183,7 @@
     .modal-icon {
       width: 80px;
       height: 80px;
-      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+      background: linear-gradient(135deg, #000000 0%, #171617 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -209,7 +209,7 @@
     }
 
     .modal-btn {
-      background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+      background: linear-gradient(135deg, #000000 0%, #000000 100%);
       color: white;
       border: none;
       padding: 12px 32px;
@@ -223,8 +223,8 @@
     }
 
     .modal-btn:hover {
-      background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
-      box-shadow: 0 6px 16px rgba(155, 89, 182, 0.4);
+      background: linear-gradient(135deg, #000000 0%, #000000 100%);
+      box-shadow: 0 6px 16px rgba(5, 5, 5, 0.4);
       transform: translateY(-2px);
     }
 
@@ -268,14 +268,14 @@
       <!-- Formulir -->
       <section class="form-section section-white">
         <h3>Kirim Pesan</h3>
-        <form action="https://formsubmit.co/momogsemarang999@gmail.com" method="POST">
+        <form action="https://formsubmit.co/miminstatisproject9@gmail.com" method="POST">
           <!-- Hidden fields untuk konfigurasi FormSubmit -->
           <input type="hidden" name="_subject" value="Pesan Baru dari Website Momog">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none">
           <input type="hidden" name="_autoresponse" value="Terima kasih telah menghubungi kami! Pesan Anda telah kami terima dan akan kami balas segera.">
-          <input type="hidden" name="_next" value="https://yourdomain.com/kontak.html?success=true">
+          <input type="hidden" name="_next" value="https://tugas-website-static-momogs-gank.vercel.app/kontak.html?success=true">
  
           <div class="form-group">
             <label for="name">Nama</label>
@@ -302,7 +302,7 @@
         </div>
         <div class="contact-item">
           <span class="contact-label">Email</span>
-          <p>momogsemarang999@gmail.com</p>
+          <p>miminstatisproject9@gmail.com</p>
         </div>
         <div class="contact-item">
           <span class="contact-label">Telepon</span>
@@ -333,7 +333,7 @@
     </div>
   </div>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Fungsi untuk menampilkan modal
     function showModal() {
       document.getElementById('successModal').classList.add('active');
@@ -355,10 +355,4 @@
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
       showModal();
-      // Hapus parameter dari URL tanpa reload
-      window.history.replaceState({}, document.title, window.location.pathname);
     }
-  </script>
-
-</body>
-</html>
