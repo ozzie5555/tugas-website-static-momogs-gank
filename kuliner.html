@@ -4,11 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kuliner – Momog</title>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <!-- CSS Lokal -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
+    /* --- STYLE JUDUL TENGAH (Updated) --- */
+    .page-header {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+
+    .page-header h2 {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #1A1A1A;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    /* Deskripsi di bawah judul */
+    .page-header p {
+      font-size: 1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 12px auto 0;
+      line-height: 1.6;
+    }
+
     /* Layout Khusus Kuliner */
     .kuliner-grid {
       display: grid;
@@ -94,11 +117,13 @@
         gap: 24px;
         padding: 10px;
       }
+      .page-header h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html" class="nav-brand-logo">
       <img src="assets/images/logo.png" alt="Momog" class="navbar-logo">
@@ -112,12 +137,14 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
   <main class="container">
-    <h2>Kuliner Khas Semarang</h2>
+    
+    <div class="page-header">
+      <h2>Kuliner Khas Semarang</h2>
+      <p>Nikmati ragam cita rasa otentik yang memanjakan lidah, mulai dari manisnya Wingko Babat hingga gurihnya Lumpia yang legendaris.</p>
+    </div>
 
     <div class="kuliner-grid">
-      <!-- Wingko Babat -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/wingko-babat.jpg" alt="Wingko Babat" class="kuliner-img">
@@ -128,7 +155,6 @@
         </div>
       </div>
 
-      <!-- Bandeng Presto -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/bandeng-presto.jpg" alt="Bandeng Presto" class="kuliner-img">
@@ -139,7 +165,6 @@
         </div>
       </div>
 
-      <!-- Lumpia -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/lumpia.jpg" alt="Lumpia Semarang" class="kuliner-img">
@@ -150,7 +175,6 @@
         </div>
       </div>
 
-      <!-- Tahu Gimbal -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/tahu-gimbal.jpeg" alt="Tahu Gimbal" class="kuliner-img">
@@ -161,7 +185,6 @@
         </div>
       </div>
 
-      <!-- Tahu Petis -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/Tahu-Petis-2.jpg" alt="Tahu Petis" class="kuliner-img">
@@ -172,7 +195,6 @@
         </div>
       </div>
 
-      <!-- Babat Gongso -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/babat gongso2.jpg" alt="Babat Gongso" class="kuliner-img">
@@ -183,7 +205,6 @@
         </div>
       </div>
 
-      <!-- Gulai Kambing -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/gulai-kambing.jpg" alt="Gulai Kambing" class="kuliner-img">
@@ -194,7 +215,6 @@
         </div>
       </div>
 
-      <!-- Wedang Tahu -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/wedang-tahu.jpg" alt="Wedang Tahu" class="kuliner-img">
@@ -205,7 +225,6 @@
         </div>
       </div>
 
-      <!-- Mie Kopyok -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/mie-kopyok.jpeg" alt="Mie Kopyok" class="kuliner-img">
@@ -216,7 +235,6 @@
         </div>
       </div>
 
-      <!-- Garang Asem -->
       <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/garang-asem.jpeg" alt="Garang Asem" class="kuliner-img">
@@ -227,8 +245,7 @@
         </div>
       </div>
 
-    <!-- Soto Bangkong -->
-      <div class="kuliner-card">
+    <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/soto-bangkong.jpeg" alt="Soto Bangkong" class="kuliner-img">
         </div>
@@ -239,8 +256,7 @@
       </div>
     
 
-    <!-- Nasi pindang -->
-      <div class="kuliner-card">
+    <div class="kuliner-card">
         <div class="kuliner-img-wrapper">
           <img src="assets/images/kuliner/nasi-pindang.jpg" alt="Nasi pindang" class="kuliner-img">
         </div>
@@ -252,8 +268,6 @@
     </div>
   </main>
 
-  
-  <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2026 Community Momog's Concordia. All rights reserved.</p>
   </footer>

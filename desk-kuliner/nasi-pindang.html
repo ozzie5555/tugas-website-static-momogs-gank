@@ -187,7 +187,65 @@
       list-style: none;
     }
 
-    .location-list li, .tips-content li {
+    .location-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .location-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      margin-top: 2px;
+    }
+
+    .location-icon a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s ease;
+    }
+
+    .location-icon a:hover {
+      transform: scale(1.1);
+    }
+
+    .location-icon img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .location-details {
+      flex: 1;
+    }
+
+    .location-details strong {
+      color: #1a202c;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .location-details span {
+      color: #718096;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .location-details em {
+      color: #4a5568;
+      font-size: 0.875rem;
+      font-style: italic;
+      display: block;
+      margin-top: 8px;
+    }
+
+    .tips-content li {
       margin-bottom: 16px;
       padding-left: 24px;
       position: relative;
@@ -195,11 +253,11 @@
       color: #4a5568;
     }
 
-    .location-list li:last-child, .tips-content li:last-child {
+    .tips-content li:last-child {
       margin-bottom: 0;
     }
 
-    .location-list li::before, .tips-content li::before {
+    .tips-content li::before {
       content: "";
       position: absolute;
       left: 0;
@@ -210,7 +268,7 @@
       background-color: #4a5568;
     }
 
-    .location-list strong, .tips-content strong {
+    .tips-content strong {
       color: #1a202c;
       font-weight: 600;
       display: block;
@@ -301,15 +359,21 @@
         </div>
 
         <div class="location-card">
-          <h3>Lokasi Rekomendasi</h3>
+          <h3>Lokasi</h3>
           <ul class="location-list">
             <li>
-              <strong>Nasi Pindang Mbok Sum</strong>
-              Warung legendaris dengan resep turun temurun sejak tahun 1950-an
-            </li>
-            <li>
-              <strong>Nasi Pindang Bu Tomo</strong>
-              Terkenal dengan kuah pindang yang kental dan ikan yang segar
+              <div class="location-icon">
+                <a href="https://maps.app.goo.gl/fBq5jtN9yJhJyUH56" target="_blank" rel="noopener noreferrer" title="Lihat di Google Maps">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4a5568">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                </a>
+              </div>
+              <div class="location-details">
+                <strong>Warung Makan Nasi Pindang Bu Yuli</strong>
+                <span>Jl. MT. Haryono No.775, Candi, Kec. Candisari, Kota Semarang, Jawa Tengah 50256</span>
+                <span>Buka: Pagi hingga siang hari</span>
+              </div>
             </li>
           </ul>
         </div>

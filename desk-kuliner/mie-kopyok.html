@@ -239,7 +239,65 @@
       list-style: none;
     }
 
-    .location-list li, .tips-content li {
+    .location-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .location-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      margin-top: 2px;
+    }
+
+    .location-icon a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.2s ease;
+    }
+
+    .location-icon a:hover {
+      transform: scale(1.1);
+    }
+
+    .location-icon img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .location-details {
+      flex: 1;
+    }
+
+    .location-details strong {
+      color: #1a202c;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .location-details span {
+      color: #718096;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .location-details em {
+      color: #4a5568;
+      font-size: 0.875rem;
+      font-style: italic;
+      display: block;
+      margin-top: 8px;
+    }
+
+    .tips-content li {
       margin-bottom: 16px;
       padding-left: 24px;
       position: relative;
@@ -247,11 +305,11 @@
       color: #4a5568;
     }
 
-    .location-list li:last-child, .tips-content li:last-child {
+    .tips-content li:last-child {
       margin-bottom: 0;
     }
 
-    .location-list li::before, .tips-content li::before {
+    .tips-content li::before {
       content: "";
       position: absolute;
       left: 0;
@@ -262,7 +320,7 @@
       background-color: #4a5568;
     }
 
-    .location-list strong, .tips-content strong {
+    .tips-content strong {
       color: #1a202c;
       font-weight: 600;
       display: block;
@@ -382,19 +440,22 @@
         </div>
 
         <div class="location-card">
-          <h3>Lokasi Rekomendasi</h3>
+          <h3>Lokasi</h3>
           <ul class="location-list">
             <li>
-              <strong>Mie Kopyok Pak Dhuwur</strong>
-              Salah satu yang paling terkenal dengan cita rasa autentik
-            </li>
-            <li>
-              <strong>Mie Kopyok Mberok</strong>
-              Legendaris sejak puluhan tahun dengan resep turun temurun
-            </li>
-            <li>
-              <strong>Warung Mie Kopyok Gajah Mada</strong>
-              Terkenal dengan porsi yang besar dan harga terjangkau
+              <div class="location-icon">
+                <a href="https://maps.app.goo.gl/iAj8A1LGuCrzb3Pq8" target="_blank" rel="noopener noreferrer" title="Lihat di Google Maps">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4a5568">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                </a>
+              </div>
+              <div class="location-details">
+                <strong>Mie Kopyok Pak Dhuwur</strong>
+                <span>Jl. Tanjung No.18A, Pandansari, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50132</span>
+                <span>Buka: Pagi hingga sore hari</span>
+                <em>Tips: Salah satu yang paling terkenal dengan cita rasa autentik, datang lebih pagi untuk menghindari kehabisan</em>
+              </div>
             </li>
           </ul>
         </div>
@@ -429,4 +490,3 @@
 
 </body>
 </html>
-
